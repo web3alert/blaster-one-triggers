@@ -1,0 +1,911 @@
+resource: /sources/blast/bundles
+spec:
+  app: none
+  name: custom
+  version: none
+  resources:
+    - name: l2-standart-bridge
+      blueprint: common.blast.sepolia.evm-contract
+      commands:
+        - set:
+            address: "0x4200000000000000000000000000000000000024"
+            abi: "[{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"localToken\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"remoteToken\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"from\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"address\",\"name\":\"to\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"bytes\",\"name\":\"extraData\",\"type\":\"bytes\"}],\"name\":\"ERC20BridgeFinalized\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"localToken\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"remoteToken\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"from\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"address\",\"name\":\"to\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"bytes\",\"name\":\"extraData\",\"type\":\"bytes\"}],\"name\":\"ERC20BridgeInitiated\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"l1Token\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"l2Token\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"from\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"address\",\"name\":\"to\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"bytes\",\"name\":\"extraData\",\"type\":\"bytes\"}],\"name\":\"ERC20DepositInitiated\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"l1Token\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"l2Token\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"from\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"address\",\"name\":\"to\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"bytes\",\"name\":\"extraData\",\"type\":\"bytes\"}],\"name\":\"ERC20WithdrawalFinalized\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"from\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"to\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"bytes\",\"name\":\"extraData\",\"type\":\"bytes\"}],\"name\":\"ETHBridgeFinalized\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"from\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"to\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"bytes\",\"name\":\"extraData\",\"type\":\"bytes\"}],\"name\":\"ETHBridgeInitiated\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"from\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"to\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"bytes\",\"name\":\"extraData\",\"type\":\"bytes\"}],\"name\":\"ETHDepositInitiated\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"from\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"to\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"bytes\",\"name\":\"extraData\",\"type\":\"bytes\"}],\"name\":\"ETHWithdrawalFinalized\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"uint8\",\"name\":\"version\",\"type\":\"uint8\"}],\"name\":\"Initialized\",\"type\":\"event\"}]"
+
+    - name: l1-standart-bridge
+      blueprint: common.ethereum.sepolia.evm-contract
+      commands:
+        - set:
+            address: "0xc644cc19d2A9388b71dd1dEde07cFFC73237Dca8"
+            abi: "[{\"type\":\"event\",\"anonymous\":false,\"inputs\":[{\"name\":\"localToken\",\"internalType\":\"address\",\"type\":\"address\",\"indexed\":true},{\"name\":\"remoteToken\",\"internalType\":\"address\",\"type\":\"address\",\"indexed\":true},{\"name\":\"from\",\"internalType\":\"address\",\"type\":\"address\",\"indexed\":true},{\"name\":\"to\",\"internalType\":\"address\",\"type\":\"address\",\"indexed\":false},{\"name\":\"amount\",\"internalType\":\"uint256\",\"type\":\"uint256\",\"indexed\":false},{\"name\":\"extraData\",\"internalType\":\"bytes\",\"type\":\"bytes\",\"indexed\":false}],\"name\":\"ERC20BridgeFinalized\"},{\"type\":\"event\",\"anonymous\":false,\"inputs\":[{\"name\":\"localToken\",\"internalType\":\"address\",\"type\":\"address\",\"indexed\":true},{\"name\":\"remoteToken\",\"internalType\":\"address\",\"type\":\"address\",\"indexed\":true},{\"name\":\"from\",\"internalType\":\"address\",\"type\":\"address\",\"indexed\":true},{\"name\":\"to\",\"internalType\":\"address\",\"type\":\"address\",\"indexed\":false},{\"name\":\"amount\",\"internalType\":\"uint256\",\"type\":\"uint256\",\"indexed\":false},{\"name\":\"extraData\",\"internalType\":\"bytes\",\"type\":\"bytes\",\"indexed\":false}],\"name\":\"ERC20BridgeInitiated\"},{\"type\":\"event\",\"anonymous\":false,\"inputs\":[{\"name\":\"l1Token\",\"internalType\":\"address\",\"type\":\"address\",\"indexed\":true},{\"name\":\"l2Token\",\"internalType\":\"address\",\"type\":\"address\",\"indexed\":true},{\"name\":\"from\",\"internalType\":\"address\",\"type\":\"address\",\"indexed\":true},{\"name\":\"to\",\"internalType\":\"address\",\"type\":\"address\",\"indexed\":false},{\"name\":\"amount\",\"internalType\":\"uint256\",\"type\":\"uint256\",\"indexed\":false},{\"name\":\"extraData\",\"internalType\":\"bytes\",\"type\":\"bytes\",\"indexed\":false}],\"name\":\"ERC20DepositInitiated\"},{\"type\":\"event\",\"anonymous\":false,\"inputs\":[{\"name\":\"l1Token\",\"internalType\":\"address\",\"type\":\"address\",\"indexed\":true},{\"name\":\"l2Token\",\"internalType\":\"address\",\"type\":\"address\",\"indexed\":true},{\"name\":\"from\",\"internalType\":\"address\",\"type\":\"address\",\"indexed\":true},{\"name\":\"to\",\"internalType\":\"address\",\"type\":\"address\",\"indexed\":false},{\"name\":\"amount\",\"internalType\":\"uint256\",\"type\":\"uint256\",\"indexed\":false},{\"name\":\"extraData\",\"internalType\":\"bytes\",\"type\":\"bytes\",\"indexed\":false}],\"name\":\"ERC20WithdrawalFinalized\"},{\"type\":\"event\",\"anonymous\":false,\"inputs\":[{\"name\":\"from\",\"internalType\":\"address\",\"type\":\"address\",\"indexed\":true},{\"name\":\"to\",\"internalType\":\"address\",\"type\":\"address\",\"indexed\":true},{\"name\":\"amount\",\"internalType\":\"uint256\",\"type\":\"uint256\",\"indexed\":false},{\"name\":\"extraData\",\"internalType\":\"bytes\",\"type\":\"bytes\",\"indexed\":false}],\"name\":\"ETHBridgeFinalized\"},{\"type\":\"event\",\"anonymous\":false,\"inputs\":[{\"name\":\"from\",\"internalType\":\"address\",\"type\":\"address\",\"indexed\":true},{\"name\":\"to\",\"internalType\":\"address\",\"type\":\"address\",\"indexed\":true},{\"name\":\"amount\",\"internalType\":\"uint256\",\"type\":\"uint256\",\"indexed\":false},{\"name\":\"extraData\",\"internalType\":\"bytes\",\"type\":\"bytes\",\"indexed\":false}],\"name\":\"ETHBridgeInitiated\"},{\"type\":\"event\",\"anonymous\":false,\"inputs\":[{\"name\":\"from\",\"internalType\":\"address\",\"type\":\"address\",\"indexed\":true},{\"name\":\"to\",\"internalType\":\"address\",\"type\":\"address\",\"indexed\":true},{\"name\":\"amount\",\"internalType\":\"uint256\",\"type\":\"uint256\",\"indexed\":false},{\"name\":\"extraData\",\"internalType\":\"bytes\",\"type\":\"bytes\",\"indexed\":false}],\"name\":\"ETHDepositInitiated\"},{\"type\":\"event\",\"anonymous\":false,\"inputs\":[{\"name\":\"from\",\"internalType\":\"address\",\"type\":\"address\",\"indexed\":true},{\"name\":\"to\",\"internalType\":\"address\",\"type\":\"address\",\"indexed\":true},{\"name\":\"amount\",\"internalType\":\"uint256\",\"type\":\"uint256\",\"indexed\":false},{\"name\":\"extraData\",\"internalType\":\"bytes\",\"type\":\"bytes\",\"indexed\":false}],\"name\":\"ETHWithdrawalFinalized\"}]"
+
+    - name: l1-erc721-bridge
+      blueprint: common.ethereum.sepolia.evm-contract
+      commands:
+        - set:
+            address: "0x993385F8A2aD69dfa0884287801191DE9805Ff37"
+            abi: "[{\"type\":\"event\",\"anonymous\":false,\"inputs\":[{\"name\":\"localToken\",\"internalType\":\"address\",\"type\":\"address\",\"indexed\":true},{\"name\":\"remoteToken\",\"internalType\":\"address\",\"type\":\"address\",\"indexed\":true},{\"name\":\"from\",\"internalType\":\"address\",\"type\":\"address\",\"indexed\":true},{\"name\":\"to\",\"internalType\":\"address\",\"type\":\"address\",\"indexed\":false},{\"name\":\"tokenId\",\"internalType\":\"uint256\",\"type\":\"uint256\",\"indexed\":false},{\"name\":\"extraData\",\"internalType\":\"bytes\",\"type\":\"bytes\",\"indexed\":false}],\"name\":\"ERC721BridgeFinalized\"},{\"type\":\"event\",\"anonymous\":false,\"inputs\":[{\"name\":\"localToken\",\"internalType\":\"address\",\"type\":\"address\",\"indexed\":true},{\"name\":\"remoteToken\",\"internalType\":\"address\",\"type\":\"address\",\"indexed\":true},{\"name\":\"from\",\"internalType\":\"address\",\"type\":\"address\",\"indexed\":true},{\"name\":\"to\",\"internalType\":\"address\",\"type\":\"address\",\"indexed\":false},{\"name\":\"tokenId\",\"internalType\":\"uint256\",\"type\":\"uint256\",\"indexed\":false},{\"name\":\"extraData\",\"internalType\":\"bytes\",\"type\":\"bytes\",\"indexed\":false}],\"name\":\"ERC721BridgeInitiated\"}]"
+
+    - name: l2-erc721-bridge
+      blueprint: common.blast.sepolia.evm-contract
+      commands:
+        - set:
+            address: "0x4200000000000000000000000000000000000014"
+            abi: "[{\"type\":\"event\",\"anonymous\":false,\"inputs\":[{\"name\":\"localToken\",\"internalType\":\"address\",\"type\":\"address\",\"indexed\":true},{\"name\":\"remoteToken\",\"internalType\":\"address\",\"type\":\"address\",\"indexed\":true},{\"name\":\"from\",\"internalType\":\"address\",\"type\":\"address\",\"indexed\":true},{\"name\":\"to\",\"internalType\":\"address\",\"type\":\"address\",\"indexed\":false},{\"name\":\"tokenId\",\"internalType\":\"uint256\",\"type\":\"uint256\",\"indexed\":false},{\"name\":\"extraData\",\"internalType\":\"bytes\",\"type\":\"bytes\",\"indexed\":false}],\"name\":\"ERC721BridgeFinalized\"},{\"type\":\"event\",\"anonymous\":false,\"inputs\":[{\"name\":\"localToken\",\"internalType\":\"address\",\"type\":\"address\",\"indexed\":true},{\"name\":\"remoteToken\",\"internalType\":\"address\",\"type\":\"address\",\"indexed\":true},{\"name\":\"from\",\"internalType\":\"address\",\"type\":\"address\",\"indexed\":true},{\"name\":\"to\",\"internalType\":\"address\",\"type\":\"address\",\"indexed\":false},{\"name\":\"tokenId\",\"internalType\":\"uint256\",\"type\":\"uint256\",\"indexed\":false},{\"name\":\"extraData\",\"internalType\":\"bytes\",\"type\":\"bytes\",\"indexed\":false}],\"name\":\"ERC721BridgeInitiated\"}]"
+
+  events:
+
+    # L2 Blast
+
+    - name: l2-eth-bridge-finalized
+      schema:
+        from:
+          type: string
+          io.ryabina.notify:
+            type: address
+            addressType: evm
+        to:
+          type: string
+          io.ryabina.notify:
+            type: address
+            addressType: evm
+        amount:
+          type: number
+      pipeline:
+        output: legacy-wrapper
+        nodes:
+          - name: event
+            block: common.blast.sepolia.stream.contract
+            resource: web3alert.blast.l2-standart-bridge
+            params:
+              type: event
+              name: ETHBridgeFinalized
+
+          - name: legacy-wrapper
+            block: transform
+            input: event
+            params:
+              output:
+                name: blast.custom.l2-eth-bridge-finalized
+                params:
+                  raw:
+                    from: "{{ input.event.from }}"
+                    to: "{{ input.event.to }}"
+                    amount: "{{ input.event.amount }}"
+                    extraData: "{{ input.event.extraData }}"
+                  human:
+                    from: "{{ input.event.from.slice(0, 6) + '...' + input.event.from.slice(-4) }}"
+                    to: "{{ input.event.to.slice(0, 6) + '...' + input.event.to.slice(-4) }}"
+                    amount: "{{ _.round(_.divide(input.event.amount, '1e18'),4) }} ETH"
+                    extraData: "{{ input.event.extraData }}"
+                payload:
+                  block: "{{ input.block }}"
+                  txid: "{{ input.txid }}"
+                  logIndex: "{{ input.logIndex }}"
+                  meta: "{{ input.meta }}"
+
+        # test:
+        #   samples:
+        #     - node: event
+        #       objects:
+        #         - fromBlock: 0
+        #           toBlock: 1
+      policy:
+        type: filter
+      meta:
+        scope: bridge
+        name: l2-eth-bridge-finalized
+        kind: event
+        labels: {}
+        description: "ETH bridge is finalized on the Blast chain."
+
+    - name: l2-eth-bridge-initiated
+      schema:
+        from:
+          type: string
+          io.ryabina.notify:
+            type: address
+            addressType: evm
+        to:
+          type: string
+          io.ryabina.notify:
+            type: address
+            addressType: evm
+        amount:
+          type: number
+      pipeline:
+        output: legacy-wrapper
+        nodes:
+          - name: event
+            block: common.blast.sepolia.stream.contract
+            resource: web3alert.blast.l2-standart-bridge
+            params:
+              type: event
+              name: ETHBridgeInitiated
+
+          - name: legacy-wrapper
+            block: transform
+            input: event
+            params:
+              output:
+                name: blast.custom.l2-eth-bridge-initiated
+                params:
+                  raw:
+                    from: "{{ input.event.from }}"
+                    to: "{{ input.event.to }}"
+                    amount: "{{ input.event.amount }}"
+                    extraData: "{{ input.event.extraData }}"
+                  human:
+                    from: "{{ input.event.from.slice(0, 6) + '...' + input.event.from.slice(-4) }}"
+                    to: "{{ input.event.to.slice(0, 6) + '...' + input.event.to.slice(-4) }}"
+                    amount: "{{ _.round(_.divide(input.event.amount, '1e18'),4) }} ETH"
+                    extraData: "{{ input.event.extraData }}"
+                payload:
+                  block: "{{ input.block }}"
+                  txid: "{{ input.txid }}"
+                  logIndex: "{{ input.logIndex }}"
+                  meta: "{{ input.meta }}"
+
+        # test:
+        #   samples:
+        #     - node: event
+        #       objects:
+        #         - fromBlock: 0
+        #           toBlock: 1
+      policy:
+        type: filter
+      meta:
+        scope: bridge
+        name: l2-eth-bridge-initiated
+        kind: event
+        labels: {}
+        description: "ETH bridge is initiated to the L1 chain."
+
+    - name: l2-erc20-bridge-initiated
+      schema:
+        l2Token:
+          type: string
+          io.ryabina.notify:
+            type: address
+            addressType: evm
+        l1Token:
+          type: string
+          io.ryabina.notify:
+            type: address
+            addressType: evm
+        from:
+          type: string
+          io.ryabina.notify:
+            type: address
+            addressType: evm
+        to:
+          type: string
+          io.ryabina.notify:
+            type: address
+            addressType: evm
+        amount:
+          type: number
+      pipeline:
+        output: legacy-wrapper
+        nodes:
+          - name: event
+            block: common.blast.sepolia.stream.contract
+            resource: web3alert.blast.l2-standart-bridge
+            params:
+              type: event
+              name: ERC20BridgeInitiated
+
+          - name: token
+            block: common.blast.sepolia.function.erc20-meta
+            input: event
+            params:
+              tokenAddress: "{{ input.event.localToken }}"
+
+          - name: legacy-wrapper
+            block: transform
+            input: 
+              - event: event
+              - token: token
+            params:
+              output:
+                name: blast.custom.l2-erc20-bridge-initiated
+                params:
+                  raw:
+                    l2Token: "{{ input.event.event.localToken }}"
+                    l1Token: "{{ input.event.event.remoteToken }}"
+                    from: "{{ input.event.event.from }}"
+                    to: "{{ input.event.event.to }}"
+                    amount: "{{ input.event.event.amount }}"
+                    extraData: "{{ input.event.event.extraData }}"
+                  human:
+                    l2Token: "{{ input.event.event.localToken.slice(0, 6) + '...' + input.event.event.localToken.slice(-4) }}"
+                    l1Token: "{{ input.event.event.remoteToken.slice(0, 6) + '...' + input.event.event.remoteToken.slice(-4) }}"
+                    from: "{{ input.event.event.from.slice(0, 6) + '...' + input.event.event.from.slice(-4) }}"
+                    to: "{{ input.event.event.to.slice(0, 6) + '...' + input.event.event.to.slice(-4) }}"
+                    amount: "{{ _.round(_.divide(input.event.event.amount, '1e' + input.token.decimals.toString()),4) + ' ' + input.token.symbol }}"
+                    extraData: "{{ input.event.event.extraData }}"
+                payload:
+                  block: "{{ input.block }}"
+                  txid: "{{ input.txid }}"
+                  logIndex: "{{ input.logIndex }}"
+                  meta: "{{ input.meta }}"
+
+        # test:
+        #   samples:
+        #     - node: event
+        #       objects:
+        #         - fromBlock: 0
+        #           toBlock: 1
+      policy:
+        type: filter
+      meta:
+        scope: bridge
+        name: l2-erc20-bridge-initiated
+        kind: event
+        labels: {}
+        description: "ERC20 bridge is initiated to the L1 chain."
+
+    - name: l2-erc20-bridge-finalized
+      schema:
+        l2Token:
+          type: string
+          io.ryabina.notify:
+            type: address
+            addressType: evm
+        l1Token:
+          type: string
+          io.ryabina.notify:
+            type: address
+            addressType: evm
+        from:
+          type: string
+          io.ryabina.notify:
+            type: address
+            addressType: evm
+        to:
+          type: string
+          io.ryabina.notify:
+            type: address
+            addressType: evm
+        amount:
+          type: number
+      pipeline:
+        output: legacy-wrapper
+        nodes:
+          - name: event
+            block: common.blast.sepolia.stream.contract
+            resource: web3alert.blast.l2-standart-bridge
+            params:
+              type: event
+              name: ERC20BridgeFinalized
+
+          - name: token
+            block: common.blast.sepolia.function.erc20-meta
+            input: event
+            params:
+              tokenAddress: "{{ input.event.localToken }}"
+
+          - name: legacy-wrapper
+            block: transform
+            input: 
+              - event: event
+              - token: token
+            params:
+              output:
+                name: blast.custom.l2-erc20-bridge-finalized
+                params:
+                  raw:
+                    l2Token: "{{ input.event.event.localToken }}"
+                    l1Token: "{{ input.event.event.remoteToken }}"
+                    from: "{{ input.event.event.from }}"
+                    to: "{{ input.event.event.to }}"
+                    amount: "{{ input.event.event.amount }}"
+                    extraData: "{{ input.event.event.extraData }}"
+                  human:
+                    l2Token: "{{ input.event.event.localToken.slice(0, 6) + '...' + input.event.event.localToken.slice(-4) }}"
+                    l1Token: "{{ input.event.event.remoteToken.slice(0, 6) + '...' + input.event.event.remoteToken.slice(-4) }}"
+                    from: "{{ input.event.event.from.slice(0, 6) + '...' + input.event.event.from.slice(-4) }}"
+                    to: "{{ input.event.event.to.slice(0, 6) + '...' + input.event.event.to.slice(-4) }}"
+                    amount: "{{ _.round(_.divide(input.event.event.amount, '1e' + input.token.decimals.toString()),4) + ' ' + input.token.symbol }}"
+                    extraData: "{{ input.event.event.extraData }}"
+                payload:
+                  block: "{{ input.block }}"
+                  txid: "{{ input.txid }}"
+                  logIndex: "{{ input.logIndex }}"
+                  meta: "{{ input.meta }}"
+
+        test:
+          samples:
+            - node: event
+              objects:
+                - fromBlock: 1612955
+                  toBlock: 1612957
+      policy:
+        type: filter
+      meta:
+        scope: bridge
+        name: l2-erc20-bridge-finalized
+        kind: event
+        labels: {}
+        description: "ERC20 bridge is finalized on the Blast chain."
+
+    - name: l2-erc721-bridge-initiated
+      schema:
+        l2Token:
+          type: string
+          io.ryabina.notify:
+            type: address
+            addressType: evm
+        l1Token:
+          type: string
+          io.ryabina.notify:
+            type: address
+            addressType: evm
+        from:
+          type: string
+          io.ryabina.notify:
+            type: address
+            addressType: evm
+        to:
+          type: string
+          io.ryabina.notify:
+            type: address
+            addressType: evm
+        tokenId:
+          type: number
+      pipeline:
+        output: legacy-wrapper
+        nodes:
+          - name: event
+            block: common.blast.sepolia.stream.contract
+            resource: web3alert.blast.l2-erc721-bridge
+            params:
+              type: event
+              name: ERC721BridgeInitiated
+
+          - name: legacy-wrapper
+            block: transform
+            input: event
+            params:
+              output:
+                name: blast.custom.l2-erc721-bridge-initiated
+                params:
+                  raw:
+                    l2Token: "{{ input.event.localToken }}"
+                    l1Token: "{{ input.event.remoteToken }}"
+                    from: "{{ input.event.from }}"
+                    to: "{{ input.event.to }}"
+                    tokenId: "{{ input.event.tokenId }}"
+                    extraData: "{{ input.event.extraData }}"
+                  human:
+                    l2Token: "{{ input.event.localToken.slice(0, 6) + '...' + input.event.localToken.slice(-4) }}"
+                    l1Token: "{{ input.event.remoteToken.slice(0, 6) + '...' + input.event.remoteToken.slice(-4) }}"
+                    from: "{{ input.event.from.slice(0, 6) + '...' + input.event.from.slice(-4) }}"
+                    to: "{{ input.event.to.slice(0, 6) + '...' + input.event.to.slice(-4) }}"
+                    tokenId: "{{ input.event.tokenId }}"
+                    extraData: "{{ input.event.extraData }}"
+                payload:
+                  block: "{{ input.block }}"
+                  txid: "{{ input.txid }}"
+                  logIndex: "{{ input.logIndex }}"
+                  meta: "{{ input.meta }}"
+
+        # test:
+        #   samples:
+        #     - node: event
+        #       objects:
+        #         - fromBlock: 0
+        #           toBlock: 1
+      policy:
+        type: filter
+      meta:
+        scope: bridge
+        name: l2-erc721-bridge-initiated
+        kind: event
+        labels: {}
+        description: "ERC721 bridge to the L1 network is initiated."
+
+    - name: l2-erc721-bridge-finalized
+      schema:
+        l2Token:
+          type: string
+          io.ryabina.notify:
+            type: address
+            addressType: evm
+        l1Token:
+          type: string
+          io.ryabina.notify:
+            type: address
+            addressType: evm
+        from:
+          type: string
+          io.ryabina.notify:
+            type: address
+            addressType: evm
+        to:
+          type: string
+          io.ryabina.notify:
+            type: address
+            addressType: evm
+        tokenId:
+          type: number
+      pipeline:
+        output: legacy-wrapper
+        nodes:
+          - name: event
+            block: common.blast.sepolia.stream.contract
+            resource: web3alert.blast.l2-erc721-bridge
+            params:
+              type: event
+              name: ERC20BridgeFinalized
+
+          - name: legacy-wrapper
+            block: transform
+            input: event
+            params:
+              output:
+                name: blast.custom.l2-erc721-bridge-finalized
+                params:
+                  raw:
+                    l2Token: "{{ input.event.localToken }}"
+                    l1Token: "{{ input.event.remoteToken }}"
+                    from: "{{ input.event.from }}"
+                    to: "{{ input.event.to }}"
+                    tokenId: "{{ input.event.tokenId }}"
+                    extraData: "{{ input.event.extraData }}"
+                  human:
+                    l2Token: "{{ input.event.localToken.slice(0, 6) + '...' + input.event.localToken.slice(-4) }}"
+                    l1Token: "{{ input.event.remoteToken.slice(0, 6) + '...' + input.event.remoteToken.slice(-4) }}"
+                    from: "{{ input.event.from.slice(0, 6) + '...' + input.event.from.slice(-4) }}"
+                    to: "{{ input.event.to.slice(0, 6) + '...' + input.event.to.slice(-4) }}"
+                    tokenId: "{{ input.event.tokenId }}"
+                    extraData: "{{ input.event.extraData }}"
+                payload:
+                  block: "{{ input.block }}"
+                  txid: "{{ input.txid }}"
+                  logIndex: "{{ input.logIndex }}"
+                  meta: "{{ input.meta }}"
+
+        # test:
+        #   samples:
+        #     - node: event
+        #       objects:
+        #         - fromBlock: 0
+        #           toBlock: 1
+      policy:
+        type: filter
+      meta:
+        scope: bridge
+        name: l2-erc721-bridge-finalized
+        kind: event
+        labels: {}
+        description: "ERC721 bridge from the L1 network is finalized."
+
+    # L1 Sepolia
+
+    - name: l1-eth-bridge-finalized
+      schema:
+        from:
+          type: string
+          io.ryabina.notify:
+            type: address
+            addressType: evm
+        to:
+          type: string
+          io.ryabina.notify:
+            type: address
+            addressType: evm
+        amount:
+          type: number
+      pipeline:
+        output: legacy-wrapper
+        nodes:
+          - name: event
+            block: common.ethereum.sepolia.stream.contract
+            resource: web3alert.blast.l1-standart-bridge
+            params:
+              type: event
+              name: ETHBridgeFinalized
+
+          - name: legacy-wrapper
+            block: transform
+            input: event
+            params:
+              output:
+                name: blast.custom.l1-eth-bridge-finalized
+                params:
+                  raw:
+                    from: "{{ input.event.from }}"
+                    to: "{{ input.event.to }}"
+                    amount: "{{ input.event.amount }}"
+                    extraData: "{{ input.event.extraData }}"
+                  human:
+                    from: "{{ input.event.from.slice(0, 6) + '...' + input.event.from.slice(-4) }}"
+                    to: "{{ input.event.to.slice(0, 6) + '...' + input.event.to.slice(-4) }}"
+                    amount: "{{ _.round(_.divide(input.event.amount, '1e18'),4) }} ETH"
+                    extraData: "{{ input.event.extraData }}"
+                payload:
+                  block: "{{ input.block }}"
+                  txid: "{{ input.txid }}"
+                  logIndex: "{{ input.logIndex }}"
+                  meta: "{{ input.meta }}"
+
+        # test:
+        #   samples:
+        #     - node: event
+        #       objects:
+        #         - fromBlock: 0
+        #           toBlock: 1
+      policy:
+        type: filter
+      meta:
+        scope: bridge
+        name: l1-eth-bridge-finalized
+        kind: event
+        labels: {}
+        description: "ETH bridge is finalized on the L1 chain."
+
+    - name: l1-eth-bridge-initiated
+      schema:
+        from:
+          type: string
+          io.ryabina.notify:
+            type: address
+            addressType: evm
+        to:
+          type: string
+          io.ryabina.notify:
+            type: address
+            addressType: evm
+        amount:
+          type: number
+      pipeline:
+        output: legacy-wrapper
+        nodes:
+          - name: event
+            block: common.ethereum.sepolia.stream.contract
+            resource: web3alert.blast.l1-standart-bridge
+            params:
+              type: event
+              name: ETHBridgeInitiated
+
+          - name: legacy-wrapper
+            block: transform
+            input: event
+            params:
+              output:
+                name: blast.custom.l1-eth-bridge-initiated
+                params:
+                  raw:
+                    from: "{{ input.event.from }}"
+                    to: "{{ input.event.to }}"
+                    amount: "{{ input.event.amount }}"
+                    extraData: "{{ input.event.extraData }}"
+                  human:
+                    from: "{{ input.event.from.slice(0, 6) + '...' + input.event.from.slice(-4) }}"
+                    to: "{{ input.event.to.slice(0, 6) + '...' + input.event.to.slice(-4) }}"
+                    amount: "{{ _.round(_.divide(input.event.amount, '1e18'),4) }} ETH"
+                    extraData: "{{ input.event.extraData }}"
+                payload:
+                  block: "{{ input.block }}"
+                  txid: "{{ input.txid }}"
+                  logIndex: "{{ input.logIndex }}"
+                  meta: "{{ input.meta }}"
+
+        # test:
+        #   samples:
+        #     - node: event
+        #       objects:
+        #         - fromBlock: 0
+        #           toBlock: 1
+      policy:
+        type: filter
+      meta:
+        scope: bridge
+        name: l1-eth-bridge-initiated
+        kind: event
+        labels: {}
+        description: "ETH bridge is initiated to the Blast chain."
+
+    - name: l1-erc20-bridge-initiated
+      schema:
+        l1Token:
+          type: string
+          io.ryabina.notify:
+            type: address
+            addressType: evm
+        l2Token:
+          type: string
+          io.ryabina.notify:
+            type: address
+            addressType: evm
+        from:
+          type: string
+          io.ryabina.notify:
+            type: address
+            addressType: evm
+        to:
+          type: string
+          io.ryabina.notify:
+            type: address
+            addressType: evm
+        amount:
+          type: number
+      pipeline:
+        output: legacy-wrapper
+        nodes:
+          - name: event
+            block: common.ethereum.sepolia.stream.contract
+            resource: web3alert.blast.l1-standart-bridge
+            params:
+              type: event
+              name: ERC20BridgeInitiated
+
+          - name: legacy-wrapper
+            block: transform
+            input: event
+            params:
+              output:
+                name: blast.custom.l1-erc20-bridge-initiated
+                params:
+                  raw:
+                    l1Token: "{{ input.event.localToken }}"
+                    l2Token: "{{ input.event.remoteToken }}"
+                    from: "{{ input.event.from }}"
+                    to: "{{ input.event.to }}"
+                    amount: "{{ input.event.amount }}"
+                    extraData: "{{ input.event.extraData }}"
+                  human:
+                    l2Token: "{{ input.event.localToken.slice(0, 6) + '...' + input.event.localToken.slice(-4) }}"
+                    l1Token: "{{ input.event.remoteToken.slice(0, 6) + '...' + input.event.remoteToken.slice(-4) }}"
+                    from: "{{ input.event.from.slice(0, 6) + '...' + input.event.from.slice(-4) }}"
+                    to: "{{ input.event.to.slice(0, 6) + '...' + input.event.to.slice(-4) }}"
+                    amount: "{{ _.round(_.divide(input.event.amount, '1e18'),4) }}"
+                    extraData: "{{ input.event.extraData }}"
+                payload:
+                  block: "{{ input.block }}"
+                  txid: "{{ input.txid }}"
+                  logIndex: "{{ input.logIndex }}"
+                  meta: "{{ input.meta }}"
+
+        # test:
+        #   samples:
+        #     - node: event
+        #       objects:
+        #         - fromBlock: 0
+        #           toBlock: 1
+      policy:
+        type: filter
+      meta:
+        scope: bridge
+        name: l1-erc20-bridge-initiated
+        kind: event
+        labels: {}
+        description: "ERC20 bridge is initiated to the Blast chain."
+
+    - name: l1-erc20-bridge-finalized
+      schema:
+        l1Token:
+          type: string
+          io.ryabina.notify:
+            type: address
+            addressType: evm
+        l2Token:
+          type: string
+          io.ryabina.notify:
+            type: address
+            addressType: evm
+        from:
+          type: string
+          io.ryabina.notify:
+            type: address
+            addressType: evm
+        to:
+          type: string
+          io.ryabina.notify:
+            type: address
+            addressType: evm
+        amount:
+          type: number
+      pipeline:
+        output: legacy-wrapper
+        nodes:
+          - name: event
+            block: common.ethereum.sepolia.stream.contract
+            resource: web3alert.blast.l1-standart-bridge
+            params:
+              type: event
+              name: ERC20BridgeFinalized
+
+          - name: legacy-wrapper
+            block: transform
+            input: event
+            params:
+              output:
+                name: blast.custom.l1-erc20-bridge-finalized
+                params:
+                  raw:
+                    l2Token: "{{ input.event.localToken }}"
+                    l1Token: "{{ input.event.remoteToken }}"
+                    from: "{{ input.event.from }}"
+                    to: "{{ input.event.to }}"
+                    amount: "{{ input.event.amount }}"
+                    extraData: "{{ input.event.extraData }}"
+                  human:
+                    l2Token: "{{ input.event.localToken.slice(0, 6) + '...' + input.event.localToken.slice(-4) }}"
+                    l1Token: "{{ input.event.remoteToken.slice(0, 6) + '...' + input.event.remoteToken.slice(-4) }}"
+                    from: "{{ input.event.from.slice(0, 6) + '...' + input.event.from.slice(-4) }}"
+                    to: "{{ input.event.to.slice(0, 6) + '...' + input.event.to.slice(-4) }}"
+                    amount: "{{ _.round(_.divide(input.event.amount, '1e18'),4) }}"
+                    extraData: "{{ input.event.extraData }}"
+                payload:
+                  block: "{{ input.block }}"
+                  txid: "{{ input.txid }}"
+                  logIndex: "{{ input.logIndex }}"
+                  meta: "{{ input.meta }}"
+
+        # test:
+        #   samples:
+        #     - node: event
+        #       objects:
+        #         - fromBlock: 0
+        #           toBlock: 1
+      policy:
+        type: filter
+      meta:
+        scope: bridge
+        name: l1-erc20-bridge-finalized
+        kind: event
+        labels: {}
+        description: "ERC20 bridge is finalized on the L1 chain."
+
+    - name: l1-erc721-bridge-initiated
+      schema:
+        l1Token:
+          type: string
+          io.ryabina.notify:
+            type: address
+            addressType: evm
+        l2Token:
+          type: string
+          io.ryabina.notify:
+            type: address
+            addressType: evm
+        from:
+          type: string
+          io.ryabina.notify:
+            type: address
+            addressType: evm
+        to:
+          type: string
+          io.ryabina.notify:
+            type: address
+            addressType: evm
+        tokenId:
+          type: number
+      pipeline:
+        output: legacy-wrapper
+        nodes:
+          - name: event
+            block: common.ethereum.sepolia.stream.contract
+            resource: web3alert.blast.l1-erc721-bridge
+            params:
+              type: event
+              name: ERC721BridgeInitiated
+
+          - name: legacy-wrapper
+            block: transform
+            input: event
+            params:
+              output:
+                name: blast.custom.l1-erc721-bridge-initiated
+                params:
+                  raw:
+                    l1Token: "{{ input.event.localToken }}"
+                    l2Token: "{{ input.event.remoteToken }}"
+                    from: "{{ input.event.from }}"
+                    to: "{{ input.event.to }}"
+                    tokenId: "{{ input.event.tokenId }}"
+                    extraData: "{{ input.event.extraData }}"
+                  human:
+                    l1Token: "{{ input.event.localToken.slice(0, 6) + '...' + input.event.localToken.slice(-4) }}"
+                    l2Token: "{{ input.event.remoteToken.slice(0, 6) + '...' + input.event.remoteToken.slice(-4) }}"
+                    from: "{{ input.event.from.slice(0, 6) + '...' + input.event.from.slice(-4) }}"
+                    to: "{{ input.event.to.slice(0, 6) + '...' + input.event.to.slice(-4) }}"
+                    tokenId: "{{ input.event.tokenId }}"
+                    extraData: "{{ input.event.extraData }}"
+                payload:
+                  block: "{{ input.block }}"
+                  txid: "{{ input.txid }}"
+                  logIndex: "{{ input.logIndex }}"
+                  meta: "{{ input.meta }}"
+
+        # test:
+        #   samples:
+        #     - node: event
+        #       objects:
+        #         - fromBlock: 0
+        #           toBlock: 1
+      policy:
+        type: filter
+      meta:
+        scope: bridge
+        name: l1-erc721-bridge-initiated
+        kind: event
+        labels: {}
+        description: "ERC721 bridge to the Blast network is initiated."
+
+    - name: l1-erc721-bridge-finalized
+      schema:
+        l1Token:
+          type: string
+          io.ryabina.notify:
+            type: address
+            addressType: evm
+        l2Token:
+          type: string
+          io.ryabina.notify:
+            type: address
+            addressType: evm
+        from:
+          type: string
+          io.ryabina.notify:
+            type: address
+            addressType: evm
+        to:
+          type: string
+          io.ryabina.notify:
+            type: address
+            addressType: evm
+        tokenId:
+          type: number
+      pipeline:
+        output: legacy-wrapper
+        nodes:
+          - name: event
+            block: common.ethereum.sepolia.stream.contract
+            resource: web3alert.blast.l1-erc721-bridge
+            params:
+              type: event
+              name: ERC20BridgeFinalized
+
+          - name: legacy-wrapper
+            block: transform
+            input: event
+            params:
+              output:
+                name: blast.custom.l1-erc721-bridge-finalized
+                params:
+                  raw:
+                    l1Token: "{{ input.event.localToken }}"
+                    l2Token: "{{ input.event.remoteToken }}"
+                    from: "{{ input.event.from }}"
+                    to: "{{ input.event.to }}"
+                    tokenId: "{{ input.event.tokenId }}"
+                    extraData: "{{ input.event.extraData }}"
+                  human:
+                    l1Token: "{{ input.event.localToken.slice(0, 6) + '...' + input.event.localToken.slice(-4) }}"
+                    l2Token: "{{ input.event.remoteToken.slice(0, 6) + '...' + input.event.remoteToken.slice(-4) }}"
+                    from: "{{ input.event.from.slice(0, 6) + '...' + input.event.from.slice(-4) }}"
+                    to: "{{ input.event.to.slice(0, 6) + '...' + input.event.to.slice(-4) }}"
+                    tokenId: "{{ input.event.tokenId }}"
+                    extraData: "{{ input.event.extraData }}"
+                payload:
+                  block: "{{ input.block }}"
+                  txid: "{{ input.txid }}"
+                  logIndex: "{{ input.logIndex }}"
+                  meta: "{{ input.meta }}"
+
+        # test:
+        #   samples:
+        #     - node: event
+        #       objects:
+        #         - fromBlock: 0
+        #           toBlock: 1
+      policy:
+        type: filter
+      meta:
+        scope: bridge
+        name: l1-erc721-bridge-finalized
+        kind: event
+        labels: {}
+        description: "ERC721 bridge from the Blast network is finalized."
